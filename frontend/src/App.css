@@ -1,0 +1,59 @@
+/* 
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@600;800&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400&display=swap'); */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  background: #ffffff;
+  color: #0f172a;
+  min-height: 100vh;
+}
+
+.App {
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Manrope', sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.upload-zone {
+  border: 2px dashed #cbd5e1;
+  transition: border-color 0.2s ease-out, background-color 0.2s ease-out;
+}
+
+.upload-zone:hover {
+  border-color: #2563eb;
+  background-color: #eff6ff;
+}
+
+.upload-zone.drag-active {
+  border-color: #2563eb;
+  background-color: #dbeafe;
+  border-style: solid;
+}
+
+button {
+  transition: all 0.2s ease-out;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+.qr-container {
+  border: 1px solid #e2e8f0;
+  padding: 1.5rem;
+  background: #f8fafc;
+}
