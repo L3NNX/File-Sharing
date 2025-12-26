@@ -17,6 +17,10 @@ app.use(
   })
 );
 
+app.get("/", (req, res) => {
+  res.send("File Sharing Service is running.");
+});
+
 app.use("/api", fileRoutes);
 
 app.listen(8000, () => {

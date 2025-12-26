@@ -66,6 +66,8 @@ router.get("/download/:id", async (req, res) => {
   if (!meta) return res.sendStatus(404);
 
   if (new Date() > meta.expires_at) {
+    const bucket = getBucket();
+    await bucket.delete(meta.gridfs_id);
     await File.deleteOne({ id: meta.id });
     return res.sendStatus(410);
   }
@@ -78,7 +80,11 @@ router.get("/download/:id", async (req, res) => {
   );
   res.setHeader("Content-Type", meta.mimetype);
 
-  bucket.openDownloadStream(meta.gridfs_id).pipe(res);
+  // bucket.openDownloadStream(meta.gridfs_id).pipe(res);
+   const downloadStream = bucket.openDownloadStream(meta.gridfs_id);
+
+  downloadStream.on("error", () => res.sendStatus(404));
+  downloadStream.pipe(res);
 });
 
 
