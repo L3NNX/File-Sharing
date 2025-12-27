@@ -18,7 +18,10 @@ export const About = () => {
             text-center
             tracking-tight
           ">
-            About Zero Footprint Sharing
+            About Ephem
+            <span className="block text-base sm:text-lg text-foreground/70 font-medium mt-2">
+            Zero-footprint file sharing
+            </span>
           </h1>
 
           <section className="
@@ -30,9 +33,9 @@ export const About = () => {
             leading-relaxed
           ">
             <p>
-              Zero Footprint Sharing is a secure and private file sharing service
-              designed to let you share files without leaving a trace. Files are
-              temporary, links expire, and nothing lives longer than it should.
+                          Ephem is a privacy-first file sharing platform built for temporary,
+                          no-trace transfers. Files are ephemeral by design — they expire,
+                          self-destruct, and leave no footprint behind.
             </p>
 
             <h2 className="text-xl sm:text-2xl font-semibold pt-6">
@@ -76,7 +79,7 @@ export const About = () => {
             </p>
 
             <p className="pt-4">
-              Thanks for using Zero Footprint Sharing.
+              Thanks for using Ephem.
             </p>
           </section>
         </div>

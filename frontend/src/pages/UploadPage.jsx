@@ -98,7 +98,7 @@ export const UploadPage = () => {
             animate={{ opacity: 1, y: 0 }}
             className="flex justify-center"
           >
-            <div className="bg-white/5 text-zinc-400 border border-white/10 px-3 py-0.5 rounded-full text-[12px] tracking-widest font-semibold uppercase inline-flex items-center gap-1.5">
+            <div className="bg-white/5 text-zinc-400 border border-white/10 px-3 py-1.5 rounded-full text-[12px] tracking-widest font-semibold uppercase inline-flex items-center gap-1.5">
               <Sparkles className="w-4 h-4 text-amber-300" />
               Secure Ephemeral Sharing
             </div>

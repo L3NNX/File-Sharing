@@ -11,7 +11,7 @@ export default function Navbar() {
         >
           <Zap className="w-4 h-4 text-white" />
           <span className="font-semibold mono tracking-wide text-sm uppercase">
-            Flash
+            Ephem
           </span>
           </Link>
         </div>
