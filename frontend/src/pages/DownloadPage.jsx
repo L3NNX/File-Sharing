@@ -3,7 +3,8 @@ import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import { Download, FileX, Clock, Home, Loader2, Zap, CheckCircle, AlertCircle } from "lucide-react";
 import { motion } from "framer-motion";
-
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
 
@@ -112,20 +113,7 @@ export const DownloadPage = () => {
   return (
     <div className="min-h-screen bg-black text-white overflow-x-hidden">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-[100] border-b border-white/[0.05] bg-black/50 backdrop-blur-md">
-        <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Zap className="w-4 h-4 text-white" />
-            <span className="font-semibold tracking-tight text-sm uppercase">Flash</span>
-          </div>
-          <Link
-            to="/"
-            className="text-xs text-zinc-500 hover:text-white transition-colors"
-          >
-            Upload New
-          </Link>
-        </div>
-      </nav>
+        <Navbar />
 
       <main className="relative z-10 pt-32 pb-20 px-6">
         <motion.div
@@ -160,7 +148,7 @@ export const DownloadPage = () => {
           >
             {/* Filename */}
             <div className="mb-8 pb-8 border-b border-white/[0.05]">
-              <p className="text-sm text-zinc-500 mb-3">
+              <p className="text-sm text-foreground mb-3">
                 File Name
               </p>
               <p
@@ -173,7 +161,7 @@ export const DownloadPage = () => {
 
             {/* File Size */}
             <div className="mb-8 pb-8 border-b border-white/[0.05]">
-              <p className="text-sm text-zinc-500 mb-3">
+              <p className="text-sm text-foreground mb-3">
                 File Size
               </p>
               <p
@@ -253,11 +241,7 @@ export const DownloadPage = () => {
         </motion.div>
       </main>
 
-      <footer className="border-t border-white/[0.05] py-8 px-6 text-center">
-       <p className="text-base text-zinc-600 ">
-          © Anonymous • Zero Footprint Sharing
-        </p>
-      </footer>
+   <Footer />
     </div>
   );
 };

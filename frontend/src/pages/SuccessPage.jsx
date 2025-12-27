@@ -3,7 +3,8 @@ import { useParams, useLocation, Link } from "react-router-dom";
 import { Check, Copy, Download, Clock, ArrowLeft, Zap, AlertCircle } from "lucide-react";
 import { toast } from "sonner";
 import { motion } from "framer-motion";
-
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 export const SuccessPage = () => {
@@ -43,22 +44,9 @@ export const SuccessPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white overflow-x-hidden font-sans">
+    <div className="min-h-screen bg-background text-white overflow-x-hidden font-sans">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-[100] border-b border-white/[0.05] bg-black/50 backdrop-blur-md">
-        <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Zap className="w-4 h-4 text-white" />
-            <span className="font-semibold tracking-tight text-sm uppercase">Flash</span>
-          </div>
-          <Link
-            to="/"
-            className="text-xs text-zinc-500 hover:text-white transition-colors"
-          >
-            Upload New
-          </Link>
-        </div>
-      </nav>
+          <Navbar />
 
       <main className="relative z-10 pt-32 pb-20 px-6">
         <motion.div
@@ -79,7 +67,7 @@ export const SuccessPage = () => {
             <h1 className="text-4xl md:text-5xl font-extrabold tracking-tighter text-white mb-4">
               Share Ready!
             </h1>
-            <p className="text-base md:text-lg text-zinc-400 max-w-lg mx-auto leading-relaxed">
+            <p className="text-base md:text-lg text-foreground max-w-lg mx-auto leading-relaxed">
               Your file is encrypted and ready to share. Use the link below or scan the QR code.
             </p>
           </div>
@@ -94,7 +82,7 @@ export const SuccessPage = () => {
           >
             {/* File Name */}
             <div className="pb-8 border-b border-white/[0.05]">
-              <p className="text-sm text-zinc-500  mb-3">
+              <p className="text-sm text-foreground  mb-3">
                 File Name
               </p>
               <p
@@ -107,7 +95,7 @@ export const SuccessPage = () => {
 
             {/* File Size */}
             <div className="pb-8 border-b border-white/[0.05]">
-              <p className="text-sm text-zinc-500  mb-3">
+              <p className="text-sm text-foreground  mb-3">
                 File Size
               </p>
               <p
@@ -120,7 +108,7 @@ export const SuccessPage = () => {
 
             {/* Share Link */}
             <div className="pb-8 border-b border-white/[0.05]">
-              <p className="text-sm text-zinc-500  mb-3">
+              <p className="text-sm text-foreground  mb-3">
                 Share Link
               </p>
               <div className="flex gap-2">
@@ -133,7 +121,7 @@ export const SuccessPage = () => {
                 />
                 <button
                   onClick={handleCopyLink}
-                  className="h-12 px-6 bg-white text-black font-bold rounded-md hover:bg-zinc-200 transition-all flex items-center gap-2"
+                  className="h-12 px-6 bg-white text-black font-medium leading-relaxed rounded-md hover:bg-zinc-200 transition-all flex items-center gap-2"
                   data-testid="copy-link-button"
                 >
                   {copied ? (
@@ -153,7 +141,7 @@ export const SuccessPage = () => {
 
             {/* QR Code */}
             <div>
-              <p className="text-sm text-zinc-500 mb-4">
+              <p className="text-sm text-foreground mb-4">
                 QR Code
               </p>
               <div className="flex justify-center">
@@ -172,7 +160,7 @@ export const SuccessPage = () => {
                   />
                 </motion.div>
               </div>
-              <p className="text-center text-sm text-zinc-500 mt-4">
+              <p className="text-center text-sm text-foreground mt-4">
                 Scan to download
               </p>
             </div>
@@ -223,24 +211,20 @@ export const SuccessPage = () => {
             transition={{ delay: 0.3 }}
             className="mt-16 pt-12 border-t border-white/[0.05] flex justify-center items-center gap-6 text-center"
           >
-            <div className="flex items-center gap-1.5 text-[9px] font-bold tracking-[0.2em] text-zinc-600">
+            <div className="flex items-center gap-1.5 text-xs mono tracking-[0.2em] text-foreground">
               <Check className="w-3 h-3" /> SHARED
             </div>
-            <div className="flex items-center gap-1.5 text-[9px] font-bold tracking-[0.2em] text-zinc-600">
+            <div className="flex items-center gap-1.5 text-xs mono tracking-[0.2em] text-foreground">
               <Clock className="w-3 h-3" /> 120M
             </div>
-            <div className="flex items-center gap-1.5 text-[9px] font-bold tracking-[0.2em] text-zinc-600">
+            <div className="flex items-center gap-1.5 text-xs mono tracking-[0.2em] text-foreground">
               <Zap className="w-3 h-3" /> INSTANT
             </div>
           </motion.div>
         </motion.div>
       </main>
 
-      <footer className="border-t border-white/[0.05] py-8 px-6 text-center">
-        <p className="text-base text-zinc-600 ">
-          © Anonymous • Zero Footprint Sharing
-        </p>
-      </footer>
+    <Footer />
     </div>
   );
 };
