@@ -7,24 +7,24 @@ export default function Navbar() {
         <div className="flex items-center gap-2">
             <Link
           to="/"
-          className="flex items-center gap-2 hover:opacity-80 transition-opacity"
+          className="flex items-center gap-2"
         >
           <Zap className="w-4 h-4 text-white" />
-          <span className="font-semibold mono tracking-wide text-sm uppercase">
+          <span className="font-sans text-medium mono tracking-wide uppercase">
             Ephem
           </span>
           </Link>
         </div>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 text-foreground">
             <Link
             to="/about"
-            className="text-sm text-foreground hover:text-white transition-colors"
+            className="text-medium hover:text-white transition-colors"
           >
             About
           </Link>
                <Link
             to="/about"
-            className="text-sm text-foreground hover:text-white transition-colors"
+            className="text-medium hover:text-white transition-colors"
           >
             Contact
           </Link>
