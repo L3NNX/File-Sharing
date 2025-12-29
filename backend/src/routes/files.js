@@ -5,13 +5,17 @@ import File from "../models/File.js";
 import { generateQR } from "../utils/qr.js";
 import { v4 as uuid } from "uuid";
 import { Readable } from "stream";
-
+import {
+  uploadLimiter,
+  downloadLimiter,
+  metadataLimiter
+} from "../utils/rateLimit.js";
 const router = express.Router();
 
 const getBucket = () =>
   new mongoose.mongo.GridFSBucket(mongoose.connection.db);
 
-router.post("/upload", upload.single("file"), async (req, res) => {
+router.post("/upload", uploadLimiter, upload.single("file"), async (req, res) => {
   if (!req.file) {
     return res.status(400).json({ error: "No file uploaded" });
   }
@@ -61,7 +65,7 @@ router.post("/upload", upload.single("file"), async (req, res) => {
     expires_at: expires.toISOString(),
   });
 });
-router.get("/download/:id", async (req, res) => {
+router.get("/download/:id",  downloadLimiter, async (req, res) => {
   const meta = await File.findOne({ id: req.params.id });
   if (!meta) return res.sendStatus(404);
 
@@ -88,7 +92,7 @@ router.get("/download/:id", async (req, res) => {
 });
 
 
-router.get("/file/:id", async (req, res) => {
+router.get("/file/:id",metadataLimiter, async (req, res) => {
   const meta = await File.findOne({ id: req.params.id });
   if (!meta) return res.sendStatus(404);
 
