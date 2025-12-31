@@ -76,7 +76,7 @@ export const DownloadPage = () => {
 
   if (error) {
     return (
-      <div className="min-h-screen bg-black text-white flex items-center justify-center px-6 py-24">
+      <div className="min-h-screen bg-background text-white flex items-center justify-center px-6 py-24">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -111,7 +111,7 @@ export const DownloadPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-black text-white overflow-x-hidden">
+    <div className="min-h-screen bg-background text-white overflow-x-hidden">
       {/* Navigation */}
         <Navbar />
 
@@ -130,10 +130,10 @@ export const DownloadPage = () => {
             >
               <CheckCircle className="w-8 h-8 text-white" strokeWidth={1.5} />
             </motion.div>
-            <h1 className="text-4xl md:text-5xl font-semibold tracking-tight leading-tight text-white mb-4">
+            <h1 className="text-4xl md:text-5xl font-extrabold tracking-tighter text-white mb-4">
               File Ready
             </h1>
-            <p className="text-base text-zinc-400 max-w-lg mx-auto leading-relaxed">
+            <p className="text-base md:text-lg text-foreground max-w-lg mx-auto leading-relaxed">
               Your file is waiting to be downloaded. This link will expire in 2 hours.
             </p>
           </div>
@@ -228,13 +228,13 @@ export const DownloadPage = () => {
             transition={{ delay: 0.3 }}
             className="mt-16 pt-12 border-t border-white/[0.05] flex justify-center items-center gap-6 text-center"
           >
-            <div className="flex items-center gap-1.5 text-[9px] font-bold tracking-[0.2em] text-zinc-600">
+            <div className="flex items-center gap-1.5 text-xs mono tracking-[0.2em] text-foreground">
               <CheckCircle className="w-3 h-3" /> SECURE
             </div>
-            <div className="flex items-center gap-1.5 text-[9px] font-bold tracking-[0.2em] text-zinc-600">
+            <div className="flex items-center gap-1.5 text-xs mono tracking-[0.2em] text-foreground">
               <Clock className="w-3 h-3" /> 120M
             </div>
-            <div className="flex items-center gap-1.5 text-[9px] font-bold tracking-[0.2em] text-zinc-600">
+            <div className="flex items-center gap-1.5 text-xs mono tracking-[0.2em] text-foreground">
               <AlertCircle className="w-3 h-3" /> EPHEMERAL
             </div>
           </motion.div>
